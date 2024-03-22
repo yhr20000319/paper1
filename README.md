@@ -19,14 +19,15 @@ IENE
 │   ...
 ```
 ## Dependency
-
+```
 PYTHON>=3.7
 PyTorch>=1.9.0
 PyTorch Geometric>=1.7.2
 ogb>=1.3.4
 gpytorch>=1.11
 dgl>=0.6.1
-
+```
+## Running the code
 ```shell
 # cora
 python main.py --method erm --dataset cora --gnn_gen gcn --gnn gcn --run 20 --lr 0.001 --device 0
