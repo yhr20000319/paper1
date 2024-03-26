@@ -40,11 +40,11 @@ def parser_add_main_args(parser):
                         help='set the eval function to rocauc')
 
     # model
-    parser.add_argument('--hidden_channels', type=int, default=32)
+    parser.add_argument('--hidden_channels', type=int, default=64)
     parser.add_argument('--dropout', type=float, default=0.)
     parser.add_argument('--gnn', type=str, default='gcn')
     parser.add_argument('--method', type=str, default='erm',
-                        choices=['erm', 'ene'])
+                        choices=['erm', 'iene'])
     parser.add_argument('--num_layers', type=int, default=5,
                         help='number of layers for deep methods')
     parser.add_argument('--no_bn', action='store_true', help='do not use batchnorm')
@@ -56,8 +56,6 @@ def parser_add_main_args(parser):
     parser.add_argument('--epochs', type=int, default=500)
     parser.add_argument('--cpu', action='store_true')
     parser.add_argument('--weight_decay', type=float, default=0.)
-    parser.add_argument('--display_step', type=int,
-                        default=1, help='how often to print')
     parser.add_argument('--runs', type=int, default=5,
                         help='number of distinct runs')
     parser.add_argument('--cached', action='store_true',
@@ -71,17 +69,11 @@ def parser_add_main_args(parser):
     parser.add_argument('--directed', action='store_true',
                         help='set to not symmetrize adjacency')
 
-    # for graph edit model
+    # for model
     parser.add_argument('--e', type=int, default=3,
                         help='num of views for environment')
-    parser.add_argument('--K', type=int, default=3,
-                        help='num of views for data augmentation')
-    parser.add_argument('--T', type=int, default=1,
-                        help='steps for graph learner before one step for GNN')
     parser.add_argument('--num_sample', type=int, default=5,
                         help='num of samples for each node with graph edit')
-    parser.add_argument('--beta', type=float, default=1.0,
-                        help='weight for mean of risks from multiple domains')
     parser.add_argument('--lr_a', type=float, default=0.005,
                         help='learning rate for graph learner with graph edit')
     parser.add_argument('--ir_step', type=float, default=0.005,
@@ -90,8 +82,10 @@ def parser_add_main_args(parser):
                         help='rebuild what kind of object of graph')
     parser.add_argument('--var_type', type=str,
                         help='the inviriant penalty type')
-    parser.add_argument('--penalty_weight', type=float, default=4,
-                        help='the weight of penalty')
+    parser.add_argument('--pud_ro_step', type=int,
+                        default=5, help='penalty ro update step')
+    parser.add_argument('--pud_a_step', type=int,
+                        default=5, help='penalty A update step')
     # for HSIC
     parser.add_argument('--kernel', type=str, default='rbf',
                         help='rbf/linear/poly/rq')
@@ -103,8 +97,11 @@ def parser_add_main_args(parser):
     # for loss
     parser.add_argument('--niu', type=float, default=1,
                         help='trade off for reconstruction and extrapolation in step 6')
-    parser.add_argument('--pud_ro_step', type=int,
-                        default=5, help='penalty ro update step')
-    parser.add_argument('--pud_a_step', type=int,
-                        default=5, help='penalty A update step')
+    parser.add_argument('--penalty_weight', type=float, default=4,
+                        help='the weight of env_cls penalty')
+    parser.add_argument('--beta', type=float, default=1.0,
+                        help='weight for mean of risks from multiple domains')
+    # for display
+    parser.add_argument('--display_step', type=int,
+                        default=1, help='how often to print')
 
