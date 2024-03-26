@@ -43,7 +43,7 @@ def parser_add_main_args(parser):
                         help='set the eval function to rocauc')
 
     # model
-    parser.add_argument('--hidden_channels', type=int, default=32)
+    parser.add_argument('--hidden_channels', type=int, default=64)
     parser.add_argument('--dropout', type=float, default=0.0)
     parser.add_argument('--gnn', type=str, default='gcn')
     parser.add_argument('--method', type=str, default='erm',
