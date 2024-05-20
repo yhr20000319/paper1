@@ -1,5 +1,5 @@
 ## The code of IENE 
-ICML 2024 anonymous submission. Number: 4135.
+NeurIPS 2024 anonymous submission. Number: 7489.
 
 ## Download Datasets
 We used the datasets provided by [Wu et al.](https://github.com/qitianwu/GraphOOD-EERM). We slightly modified their code to support data loading. 
