@@ -1,5 +1,5 @@
 ## The code of IENE 
-NeurIPS 2024 anonymous submission. Number: 7489.
+WWW 2025 anonymous submission. Number: 1268.
 
 ## Download Datasets
 We used the datasets provided by [Wu et al.](https://github.com/qitianwu/GraphOOD-EERM). We slightly modified their code to support data loading. 
